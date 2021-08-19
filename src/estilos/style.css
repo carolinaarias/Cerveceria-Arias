@@ -33,6 +33,8 @@ a{
 header{
    width: 100%;
    background-color: rgba(0, 0, 0, 0.733);
+   box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, 0.2);
+   z-index: 10;
    height: 13vh;
    color: white;
 }
@@ -63,4 +65,31 @@ header nav{
 }
 .item-container{
    padding-top: 15vh;
+   margin-left: 5rem;
+   font-size: 2rem;
+}
+.btns{
+   align-items: center;
+}
+.btn-mas{
+   margin-right: 2rem;
+   background-color: #70ce70af;
+   width: 3rem;
+   border-color:#478147 ;
+   border-radius: 0.8rem;
+   font-size: 1.4rem;
+}
+.btn-menos{
+   margin-left: 2rem;
+   background-color: rgba(255, 0, 0, 0.568);
+   width: 3rem;
+   border-color:rgb(114, 0, 0) ;
+   border-radius: 0.8rem;
+   font-size: 1.4rem;
+}
+.btn-agregar{
+   width: 15rem;
+   margin-top: 1.5rem;
+   font-size: 1.5rem;
+   padding: 0.6rem;
 }

@@ -1,8 +1,10 @@
-const ItemListContainer = ({nombre,apellido}) => {
+import ItemCount from "./ItemCount"
+
+const ItemListContainer = () => {
    return(
          <div className="item-container">
-            <h2>Bienvenido al Holandes {nombre} {apellido}</h2>
-        </div>
+            <ItemCount initial={1} stock={5} onAdd={(cantidad) => {console.log(cantidad)}} />
+         </div>
    )
 }
 export default ItemListContainer
