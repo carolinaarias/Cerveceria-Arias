@@ -10,7 +10,7 @@ body {
    font-family: 'Source Sans Pro', sans-serif;
    font-weight: 400; }
  
-ul, ol {
+ul, ol, li {
    list-style-type: none; }
 a{
    text-decoration: none;
@@ -92,4 +92,7 @@ header nav{
    margin-top: 1.5rem;
    font-size: 1.5rem;
    padding: 0.6rem;
+}
+.img-detail{
+   width: 30rem;
 }
