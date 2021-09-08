@@ -56,6 +56,9 @@ header nav{
    font-size: 1.8rem;
    margin-left: 2rem;
 }
+a.active{
+   color: #70ce70;
+}
 .cart-icon{
    color: white;
    font-size: 3.4rem;
@@ -67,10 +70,14 @@ header nav{
    padding-top: 15vh;
    margin-left: 5rem;
    font-size: 2rem;
+
 }
-/* .btns{
-   align-items: center;
-} */
+.list-item_container{
+   color: white;
+   background-color: rgba(131, 131, 131, 0.74);
+   padding: 2rem;
+   margin-bottom: 1rem;
+}
 .btn-mas{
    margin-right: 2rem;
    background-color: #70ce70af;

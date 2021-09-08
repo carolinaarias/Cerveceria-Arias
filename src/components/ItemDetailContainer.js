@@ -1,26 +1,25 @@
 import { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
+import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
 
-   const [products,setProducts]= useState([]);
-   const URL_API_SHOP = "https://mocki.io/v1/b781c633-6251-45cc-95ca-b3a68ef46659";
-
+   const [products,setProducts]= useState({});
+   const URL_API_SHOP = "https://mocki.io/v1/9e82e1de-f4d6-46a3-823d-48524b4dd401";
+   const {id} = useParams();
    useEffect(()=> {
       fetch(URL_API_SHOP)
-      .then((respuesta)=>{
-         const valor_parseado = respuesta.json();
-         return valor_parseado;
+      .then(response => response.json())
+      .then(response => {
+         const data_find = response.filter((p) => p.id === parseInt(id))
+         setProducts(...data_find)
       })
-      .then((data)=>{
-         const data_filtrada = data.find(elemento => elemento.id === 3)
-         setProducts(data_filtrada)
-      })
-   }, []);
+      
+   }, [id]);
    return(
       <>
-         <div className="item-container">
-            <ItemDetail data={products}></ItemDetail>
+         <div className="item-container row">
+            <ItemDetail data={products}/>
          </div>
       </>
    )

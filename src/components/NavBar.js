@@ -1,5 +1,6 @@
 import ListNav from "./ListNav"
 import LogoNav from "./LogoNav"
+
 const NavBar = () => {
    return(
          <header className="fixed">
