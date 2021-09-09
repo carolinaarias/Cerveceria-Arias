@@ -5,7 +5,7 @@ import ItemList from "./ItemList";
 const ItemListContainer = () => {
 
    const [products,setProducts]= useState([]);
-   const URL_API_SHOP = "https://mocki.io/v1/9e82e1de-f4d6-46a3-823d-48524b4dd401";
+   const URL_API_SHOP = "https://mocki.io/v1/63e5758a-600b-4643-bae0-2ad60bb044da";
    const {catid} = useParams()
    useEffect(()=> {
          if (catid==="pizzas"){

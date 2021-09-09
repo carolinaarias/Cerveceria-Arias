@@ -78,6 +78,19 @@ a.active{
    padding: 2rem;
    margin-bottom: 1rem;
 }
+h2{
+   margin-bottom: 2rem;
+}
+.btn-vermas{
+   background-color: #70ce70d3;
+   color: white;
+   padding: 0.8rem;
+   margin: 1rem;
+   border-radius: 1rem;
+}
+.btn-vermas:hover{
+   background-color: #519651d3;
+}
 .btn-mas{
    margin-right: 2rem;
    background-color: #70ce70af;

@@ -1,9 +1,10 @@
 import ItemCount from "./ItemCount"
 
 const ItemDetail = ({data}) => {
+
    return(
       <li key={data.id}>
-         <img src={data.img}/>
+         <img src={data.img} className="img-detail"/>
          <h2>{data.nombre}</h2>
          <span>$ {data.precio}</span>
          <p>{data.descripcion}</p>
