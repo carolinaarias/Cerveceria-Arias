@@ -1,11 +1,10 @@
 import {useState} from "react";
-import { Link} from "react-router-dom"
 
-const ItemCount = ({initial,stock,onAdd,buttonAdd}) => {
+const ItemCount = ({initial,data,onAdd}) => {
 
    let [contador, setContador] = useState(initial);
    const sumar = () => {
-      if(contador < stock){
+      if(contador < data.stock){
          setContador(contador + 1)
       }
    }
@@ -15,7 +14,7 @@ const ItemCount = ({initial,stock,onAdd,buttonAdd}) => {
       }
    }
    const agregar = () => {
-      if(stock > 0){
+      if(data.stock > 0){
          onAdd(contador)
       }
    }
@@ -27,13 +26,7 @@ const ItemCount = ({initial,stock,onAdd,buttonAdd}) => {
             <p>{contador}</p>
             <button className="btn-menos" onClick={restar}>-</button>
          </div>
-         {
-            buttonAdd === 'add' ?
-               <button className="btn-agregar" disabled={stock > 0 ? false : true} onClick={agregar}>Agregar Carrito</button>
-            :
-               <><Link to={'/cart'} ><button className="btn-agregar">Ir a Carrito</button></Link>
-               <Link to={'/'} ><button className="btn-agregar">Seguir comprando</button></Link></>
-         }
+         <button className="btn-agregar" disabled={data.stock > 0 ? false : true} onClick={agregar}>Agregar Carrito</button>
       </div>
    )
 }

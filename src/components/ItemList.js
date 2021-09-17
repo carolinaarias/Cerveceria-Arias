@@ -4,7 +4,7 @@ const ItemList = ({data}) => {
    return data.length === 0 ?(
       <h1>cargando, aguarde...</h1>
    ) : (
-      <ul>
+      <ul className="row">
          {data.map((elemento) =>(
             <Item data={elemento} />
          ))}

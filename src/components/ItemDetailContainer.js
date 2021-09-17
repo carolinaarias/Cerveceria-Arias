@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 const ItemDetailContainer = () => {
 
    const [products,setProducts]= useState({});
-   const URL_API_SHOP = "https://mocki.io/v1/63e5758a-600b-4643-bae0-2ad60bb044da";
+   const URL_API_SHOP = "https://mocki.io/v1/cf9f5cc3-6b8c-4cd6-8a63-7013b66833cb";
    const {id} = useParams();
    useEffect(()=> {
       fetch(URL_API_SHOP)
