@@ -8,16 +8,15 @@ const CustomProvider = ({children}) => {
    const [carrito, setCarrito]=useState([])
    
    const removeItem = (itemId) => {
-      const newCarrito = carrito.filter(product => product.id !== itemId )
+      const newCarrito = carrito.filter(product => product.id != itemId )
       setCarrito(newCarrito)
    }
 
    const addItem = (product,contador) => {
       if(isInCart(product.id)){
          const oldProd = isInCart(product.id)
-         const cant = oldProd.cant + contador
-         removeItem(product.id)
-         setCarrito([...carrito,{...oldProd, cant}])
+         oldProd.cant = oldProd.cant + contador
+         setCarrito([...carrito])
          
       }else{
          setCarrito([...carrito, product])
