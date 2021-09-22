@@ -5,22 +5,27 @@ export const context = createContext([]);
 const {Provider} = context
 
 const CustomProvider = ({children}) => {
-   const [carrito, setCarrito]=useState([])
    
-   const removeItem = (itemId) => {
-      const newCarrito = carrito.filter(product => product.id != itemId )
-      setCarrito(newCarrito)
+   const [carrito, setCarrito]=useState([])
+
+   const setCart = () => {
+      setCarrito([...carrito])
    }
 
    const addItem = (product,contador) => {
       if(isInCart(product.id)){
          const oldProd = isInCart(product.id)
-         oldProd.cant = oldProd.cant + contador
+         oldProd.cant = oldProd.cant + contador 
          setCarrito([...carrito])
          
       }else{
          setCarrito([...carrito, product])
       }
+   }
+      
+   const removeItem = (itemId) => {
+      const newCarrito = carrito.filter(product => product.id != itemId )
+      setCarrito(newCarrito)
    }
 
    const clear = () => {
@@ -35,7 +40,10 @@ const CustomProvider = ({children}) => {
       context,
       addItem,
       removeItem,
-      clear
+      clear,
+      carrito,
+      setCart,
+      isInCart
    }
 
 return(

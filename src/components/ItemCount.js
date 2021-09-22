@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-const ItemCount = ({initial,data,onAdd}) => {
+const ItemCount = ({initial,data,onAdd,cart,updateCant}) => {
 
    let [contador, setContador] = useState(initial);
    const sumar = () => {
@@ -18,6 +18,9 @@ const ItemCount = ({initial,data,onAdd}) => {
          onAdd(contador)
       }
    }
+   const update = () => {
+      updateCant(contador)
+   }
 
    return(
       <div className="column btns">
@@ -26,7 +29,13 @@ const ItemCount = ({initial,data,onAdd}) => {
             <p>{contador}</p>
             <button className="btn-menos" onClick={restar}>-</button>
          </div>
-         <button className="btn-agregar" disabled={data.stock > 0 ? false : true} onClick={agregar}>Agregar Carrito</button>
+         {
+            cart === true ?
+            <button className="btn-agregar"  onClick={update}>Actualizar </button> 
+            :
+            <button className="btn-agregar" disabled={data.stock > 0 ? false : true} onClick={agregar}>Agregar Carrito</button>
+         }
+
       </div>
    )
 }

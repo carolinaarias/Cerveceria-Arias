@@ -50,6 +50,7 @@ header nav{
 .list-nav{
    justify-content: space-between;
    align-items: center;
+   margin-right: 5rem;
 }
 .list-items a{
    color: white;
@@ -59,16 +60,19 @@ header nav{
 a.active{
    color: #70ce70;
 }
+.cart-widget{
+   margin-left: 2rem;
+   margin-right: 5rem;
+   font-size: 2rem;
+}
 .cart-icon{
    color: white;
    font-size: 3.4rem;
-   margin-left: 2rem;
-   margin-right: 5rem;
-
 }
 .item-container{
    padding-top: 15vh;
-   margin-left: 5rem;
+   margin-left: 10rem;
+   margin-right: 10rem;
    font-size: 2rem;
 
 }
@@ -116,4 +120,40 @@ h2{
 }
 .img-detail{
    width: 30rem;
+}
+.img-cart{
+   width: 15rem;
+   margin-right: 5rem;
+}
+.cart-footer{
+   justify-content: space-between;
+   margin-top: 5rem;
+}
+.cart-footer_btns button{
+   margin-right: 2rem;
+}
+.cart-footer_tot{
+   align-items: center;
+   justify-content: center;
+}
+.cart-footer_tot p  {
+   margin-right: 3rem;
+}
+.cart-footer_tot button{
+   width: 15rem;
+   margin-top: 0;
+   font-size: 1.5rem;
+   padding: 0;
+}
+.item-cart_components{
+   margin-left: 20rem;
+}
+.itemCount{
+   margin-right: 5rem;
+}
+.disable{
+   display: none;
+}
+.enable{
+   display: flex;
 }
