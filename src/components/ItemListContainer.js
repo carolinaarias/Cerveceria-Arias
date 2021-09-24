@@ -1,35 +1,45 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "./ItemList";
+import { firestore } from "../firebase";
 
 const ItemListContainer = () => {
 
    const [products,setProducts]= useState([]);
-   const URL_API_SHOP = "https://mocki.io/v1/cf9f5cc3-6b8c-4cd6-8a63-7013b66833cb";
+   const [loading, setLoading] = useState(true)
    const {catid} = useParams()
    
    useEffect(()=> {
-      if(catid == null){
-         fetch(URL_API_SHOP)
-         .then(response => response.json())
-         .then(response => {setProducts(response)})
-      }else{
-         fetch(URL_API_SHOP)
-         .then(response => response.json())
-         .then(response => {
-            const data_find = response.filter(prod => prod.categoria === catid)
-            setProducts(data_find)
+      const collection = firestore.collection("products")
+      const query = collection.get()
+      // if(catid == null){
+      //    const query = collection.get()
+      // }else{
+      //    const query = collection.where('categoria','==',catid)
+      //    query.get()
+      // }
+      console.log(catid)
+      console.log(query)
+      query
+         .then((snapshot)=>{
+            const docs = snapshot.docs
+            setProducts(docs.map(doc => ({...doc.data(), id: doc.id})))
+
          })
-      }
+         .catch((error)=>{
+            console.log(error)
+         })
+         .finally(
+            setLoading(false)
+         )
    }, [catid]);
 
    return(
-      <>
-         <div className="item-container ">
-            <ItemList data={products}/>
-         </div>
-      </>
+
+      <div className="item-container ">
+         {loading ?<h1>Cargando, aguarde...</h1> : null}
+         <ItemList data={products}/>
+      </div>
    )
 }
 export default ItemListContainer
-

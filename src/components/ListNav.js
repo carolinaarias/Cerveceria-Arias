@@ -5,9 +5,9 @@ const ListNav = () => {
    return(
       <div className="row list-nav">
          <ul className="row list-items">
-            <li><NavLink to="/category/pizza">PIZZAS</NavLink></li>
-            <li><NavLink to="/category/hamburguesa">HAMBURGUESAS</NavLink></li>
-            <li><NavLink to="/category/sanguche">SANGUCHES</NavLink></li>
+            <li><NavLink to="/category/1">PIZZAS</NavLink></li>
+            <li><NavLink to="/category/3">HAMBURGUESAS</NavLink></li>
+            <li><NavLink to="/category/2">SANGUCHES</NavLink></li>
          </ul>
          <CartWidget/>
       </div>
