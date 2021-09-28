@@ -10,28 +10,26 @@ const ItemListContainer = () => {
    const {catid} = useParams()
    
    useEffect(()=> {
-      const collection = firestore.collection("products")
-      const query = collection.get()
-      // if(catid == null){
-      //    const query = collection.get()
-      // }else{
-      //    const query = collection.where('categoria','==',catid)
-      //    query.get()
-      // }
-      console.log(catid)
-      console.log(query)
-      query
-         .then((snapshot)=>{
-            const docs = snapshot.docs
-            setProducts(docs.map(doc => ({...doc.data(), id: doc.id})))
 
-         })
-         .catch((error)=>{
-            console.log(error)
-         })
-         .finally(
-            setLoading(false)
-         )
+      const collection = firestore.collection("products")
+
+      if(catid){
+         console.log('entro')
+         console.log(catid)
+         var show = collection.where('categoria', '==', catid);
+      }else{
+          var show = collection.where('destacado', '==', true);
+          console.log(show)
+      }
+      show.get().then((response) => {
+          if(response.size === 0){
+              console.log("No results!");
+          }else{
+             setProducts(response.docs.map(doc => ({...doc.data(), id:doc.id})))
+             setLoading(false)
+             console.log('entro 2')
+          };
+      })
    }, [catid]);
 
    return(
