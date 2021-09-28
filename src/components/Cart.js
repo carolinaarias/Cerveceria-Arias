@@ -28,6 +28,7 @@ const Cart = () =>{
       </div>
    ) : (
       <div  className="item-container">
+         <h1>Tu orden</h1>
          <ul className="column">
             {carrito.map((data) =>(
                <ItemCart data={data}/>
@@ -40,7 +41,7 @@ const Cart = () =>{
             </div>
             <div className = "row cart-footer_tot">
                <p>Total = ${total}</p>
-               <button className="btn-agregar" onClick={clearAll}>Finalizar Compra</button>
+               <Link to={'/form'}><button className="btn-agregar">Siguiente</button></Link>
             </div>
          </div>
 
