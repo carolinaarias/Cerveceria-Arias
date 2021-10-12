@@ -7,10 +7,9 @@ const DeleteWidget = ({data}) => {
    const remove = () => {
       removeItem(data.id)
    }
-   
 
    return(
-      <span className="material-icons" onClick={remove}>delete</span>
+      <span className="material-icons icon-delete" onClick={remove}>delete</span>
    )
 }
 export default DeleteWidget

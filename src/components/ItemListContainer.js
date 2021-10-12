@@ -2,42 +2,61 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "./ItemList";
 import { firestore } from "../firebase";
+import Footer from "./Footer";
+import { Flip, toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 const ItemListContainer = () => {
 
    const [products,setProducts]= useState([]);
    const [loading, setLoading] = useState(true)
    const {catid} = useParams()
-   
+
+   toast.info('Cargando aguarde...', {
+      position: "top-center",
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: false,
+      progress: undefined,
+      transition:Flip,
+   });
+
    useEffect(()=> {
 
       const collection = firestore.collection("products")
 
       if(catid){
-         console.log('entro')
-         console.log(catid)
-         var show = collection.where('categoria', '==', catid);
+         var id = catid.toLowerCase()
+         var show = collection.where('categoria', '==', id);
       }else{
           var show = collection.where('destacado', '==', true);
-          console.log(show)
       }
       show.get().then((response) => {
           if(response.size === 0){
-              console.log("No results!");
+              alert("Intenta de nuevo");
           }else{
              setProducts(response.docs.map(doc => ({...doc.data(), id:doc.id})))
              setLoading(false)
-             console.log('entro 2')
           };
       })
    }, [catid]);
 
    return(
-
-      <div className="item-container ">
-         {loading ?<h1>Cargando, aguarde...</h1> : null}
-         <ItemList data={products}/>
-      </div>
+      <>
+         
+         <div className="item-container ">
+            {loading ? 
+                        <ToastContainer/>
+                     : 
+                        <div>
+                           <h1>{catid ? catid : 'Destacados'}</h1>
+                           <ItemList data={products}/>
+                        </div>
+            }
+         </div>
+         <Footer/>
+      </>
    )
 }
 export default ItemListContainer

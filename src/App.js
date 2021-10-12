@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import CustomProvider from "./context/CartContext"
 import Cart from "./components/Cart.js"
 import Form from "./components/Form.js"
+
 const App = () => {
    return (
       <BrowserRouter>

@@ -19,20 +19,24 @@ const ItemDetail = ({data}) => {
       <h1>Cargando, aguarde...</h1>
    ) : (
 
-      <li key={data.id}>
+      <li key={data.id} className="detail-item_container row">
          <img src={data.img} className="img-detail"/>
-         <h2>{data.nombre}</h2>
-         <span>$ {data.precio}</span>
-         <p>{data.descripcion}</p>
-         {  
-            buttonAdd === 'add' ?
-            <ItemCount initial={1} data={data} onAdd={onAdd}/> 
-            :
-            <> 
-               <Link to={'/cart'} ><button className="btn-agregar">Ir a Carrito</button></Link>
-               <Link to={'/'} ><button className="btn-agregar">Seguir comprando</button></Link>
-            </>
-         }
+         <div className="detail-info">
+            <h2 className="detail-title">{data.nombre}</h2>
+            <p>{data.descripcion}</p>
+            <span>$ {data.precio}</span>
+            <div className="btns">
+               {  
+                  buttonAdd === 'add' ?
+                  <ItemCount initial={1} data={data} onAdd={onAdd}/> 
+                  :
+                  <div className="column detail-btns">
+                     <Link to={'/cart'} ><button className="btn-agregar btn-inverse">Ir a Carrito</button></Link>
+                     <Link to={'/'} ><button className="btn-agregar">Seguir comprando</button></Link>
+                  </div>
+               }
+            </div>
+         </div>
       </li>
    )
 }

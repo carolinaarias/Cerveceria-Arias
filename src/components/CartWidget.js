@@ -9,9 +9,7 @@ const CartWidget = () => {
    useEffect(()=> {
       if (carrito.length != 0){
          const cants = carrito.map(item => (item.cant))
-         console.log(cants)
          const sumCants = cants.reduce((prev, next) => prev + next, 0);
-         console.log(sumCants)
          setCant(sumCants)
       }else{
          setCant(0)

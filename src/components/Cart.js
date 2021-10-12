@@ -22,29 +22,30 @@ const Cart = () =>{
 
 
    return carrito.length === 0 ?(
-      <div className="item-container column">
+      <div className="item-container column cart-vacio">
          <h1>No hay productos en el carrito.</h1>
-         <Link to={'/'} ><button className="btn-agregar">Volver </button></Link>
+         <Link to={'/'} ><button className="btn-agregar btn-inverse">Volver a inicio </button></Link>
       </div>
    ) : (
       <div  className="item-container">
-         <h1>Tu orden</h1>
-         <ul className="column">
-            {carrito.map((data) =>(
-               <ItemCart data={data}/>
-            ))}
-         </ul>
+         <div className="cart">
+            <h1>Tu orden</h1>
+            <ul className="column">
+               {carrito.map((data) =>(
+                  <ItemCart data={data}/>
+               ))}
+            </ul>
+         </div>
          <div className = "row cart-footer">
             <div className= "row cart-footer_btns">
-               <button className="btn-agregar" onClick={clearAll}>Vaciar Carrito</button>
-               <Link to={'/'} ><button className="btn-agregar">Seguir comprando </button></Link>
+               <button className="btn-agregar btn-vaciar" onClick={clearAll}>Vaciar Carrito</button>
+               <Link to={'/'} ><button className="btn-agregar btn-seg">Seguir comprando </button></Link>
             </div>
             <div className = "row cart-footer_tot">
-               <p>Total = ${total}</p>
-               <Link to={'/form'}><button className="btn-agregar">Siguiente</button></Link>
+               <p>TOTAL = $ {total}</p>
+               <Link to={'/form'}><button className="btn-agregar btn-inverse">Siguiente</button></Link>
             </div>
          </div>
-
       </div>
    ) 
    

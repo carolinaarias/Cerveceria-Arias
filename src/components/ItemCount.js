@@ -1,4 +1,5 @@
 import {useState} from "react";
+import 'react-toastify/dist/ReactToastify.min.css';
 
 const ItemCount = ({initial,data,onAdd,cart,updateCant}) => {
 
@@ -23,19 +24,20 @@ const ItemCount = ({initial,data,onAdd,cart,updateCant}) => {
    }
 
    return(
-      <div className="column btns">
-         <div className="row">
+      <div className="column btns-cart">
+         <div className="row btns-counter">
             <button className="btn-mas" onClick={sumar}>+</button>
             <p>{contador}</p>
             <button className="btn-menos" onClick={restar}>-</button>
          </div>
          {
-            cart === true ?
+            cart ?
             <button className="btn-agregar"  onClick={update}>Actualizar </button> 
             :
-            <button className="btn-agregar" disabled={data.stock > 0 ? false : true} onClick={agregar}>Agregar Carrito</button>
+            <>
+               <button className="btn-agregar" disabled={data.stock > 0 ? false : true} onClick={agregar}>Agregar Carrito</button>
+            </>
          }
-
       </div>
    )
 }
