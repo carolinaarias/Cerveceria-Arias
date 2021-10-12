@@ -17,9 +17,9 @@ Para los loaders.
  ## Implementación
 1. Abrí tu consola y pegá :
 $ git clone https://github.com/carolinaarias/HolandesErrante.git
-2. Situate en la nueva carpeta
+2. Situate en la nueva carpeta : 
 $ cd c/HolandesErrante
-3. Instalá las dependencias
+3. Instalá las dependencias : 
 $ npm install
-4. Ejecutá el proyecto
+4. Ejecutá el proyecto : 
 $ npm start
