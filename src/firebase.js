@@ -2,12 +2,12 @@ import firebase from "firebase/app"
 import "firebase/firestore"
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC0chXACYKTbnxlAf7G0iJ_uCXc6pKlXGE",
-  authDomain: "holandes-errante.firebaseapp.com",
-  projectId: "holandes-errante",
-  storageBucket: "holandes-errante.appspot.com",
-  messagingSenderId: "122240213164",
-  appId: "1:122240213164:web:4235d0c34bf044cf8b7f09"
+  apiKey: "AIzaSyB5m7DeUwhWmQhrVRN05uwmkQ_06EsSgzc",
+  authDomain: "holandes-f4206.firebaseapp.com",
+  projectId: "holandes-f4206",
+  storageBucket: "holandes-f4206.appspot.com",
+  messagingSenderId: "510784572464",
+  appId: "1:510784572464:web:9d2fa687ed33f8da6df1f5"
 };
 
 // Initialize Firebase
